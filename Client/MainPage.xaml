@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="Client.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    <Page.Background>
+        <AcrylicBrush/>
+    </Page.Background>
+
+    <Grid>
+        <StackPanel x:Name="Exceptions" Orientation="Vertical" Canvas.ZIndex="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Grid x:Name="ContentPlace" KeyDown="Box_KeyDown" KeyUp="Box_KeyUp" Visibility="Collapsed">
+            <Grid x:Name="grid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="37*"/>
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="MonitorsContent" MinHeight="100" Margin="10" Orientation="Horizontal" Grid.Column="0" Grid.Row="0"/>
+                <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" Margin="10"  VerticalAlignment="Top" Opacity="1" Canvas.ZIndex="1" PointerEntered="ListView_PointerEntered" PointerExited="ListView_PointerExited" HorizontalAlignment="Center">
+                    <Button x:Name="full" Content="Переключить в полноэкранный режим" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Click="full_Click"/>
+                    <Button Content="Остановить" Width="150" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Stop"/>
+                </StackPanel>
+                <Rectangle x:Name="box" Stroke="Black" Fill="#FFC1C1C1" KeyDown="Box_KeyDown" KeyUp="Box_KeyUp" Margin="10" Grid.Column="0" Grid.Row="1"/>
+                <StackPanel x:Name="PCsContent" Orientation="Vertical" Grid.Column="1" Margin="10" Grid.Row="1"/>
+                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+                    <Button Content="Выйти" Width="180" Height="80" Margin="10" FontSize="24" Click="Swap"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid x:Name="AutorizePlace" Visibility="Collapsed" Width="1000" Height="500" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox x:Name="Login" Height="60" Margin="0,68,0,0" VerticalAlignment="Top" PlaceholderText="Логин" FontSize="36" HorizontalAlignment="Center" Width="594" TextWrapping="Wrap" Canvas.ZIndex="0"/>
+            <PasswordBox x:Name="Pass" Width="594" Height="60" HorizontalAlignment="Center" Margin="0,150,0,0" FontSize="36" PlaceholderText="Пароль" VerticalAlignment="Top"/>
+            <Button x:Name="Auto" Content="Войти" Margin="0,250,0,0" VerticalAlignment="Top" Height="60" Width="593" FontSize="24" HorizontalAlignment="Center" Click="Autorize"/>
+            <Button Content="Зарегестрироваться" Margin="0,344,0,0" VerticalAlignment="Top" Height="60" Width="594" FontSize="24" HorizontalAlignment="Center" FontFamily="Lucida Fax" FontWeight="Normal" Click="Swap"/>
+        </Grid>
+        <Grid x:Name="RegistrPlace" Visibility="Collapsed" Width="1000" Height="500" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox x:Name="LoginR" Height="60" Margin="0,68,0,0" VerticalAlignment="Top" PlaceholderText="Логин" FontSize="36" HorizontalAlignment="Center" Width="594" TextWrapping="Wrap" Canvas.ZIndex="0"/>
+            <PasswordBox x:Name="PassR1" Width="594" Height="60" HorizontalAlignment="Center" Margin="0,150,0,0" FontSize="36" PlaceholderText="Пароль" VerticalAlignment="Top"/>
+            <PasswordBox x:Name="PassR2" Width="594" Height="60" HorizontalAlignment="Center" Margin="0,232,0,0" FontSize="36" PlaceholderText="Повторите пароль" VerticalAlignment="Top"/>
+            <Button Content="Зарегистрироваться" Margin="203,344,0,0" VerticalAlignment="Top" Height="60" Width="379" FontSize="24" FontFamily="Lucida Fax" FontWeight="Normal" Click="Registr"/>
+            <Button Content="Вернуться" Margin="597,344,0,0" VerticalAlignment="Top" Height="60" Width="200" FontSize="24" FontFamily="Lucida Fax" FontWeight="Normal" Click="Swap"/>
+        </Grid>
+    </Grid>
+
+
+</Page>
